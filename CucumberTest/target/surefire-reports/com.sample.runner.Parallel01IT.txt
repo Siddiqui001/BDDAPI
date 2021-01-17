@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.sample.runner.Parallel01IT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 13.487 s <<< FAILURE! - in com.sample.runner.Parallel01IT
+runScenario(com.sample.runner.Parallel01IT)  Time elapsed: 11.081 s  <<< FAILURE!
+java.lang.AssertionError: null
+

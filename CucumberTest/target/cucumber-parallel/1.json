@@ -1,0 +1,138 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5739686984,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDef.Start(Scenario)"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Verify Flight and Hotel Booking functionlality",
+        "description": "",
+        "id": "title-of-your-feature-i-want-to-use-this-template-for-my-feature-file;verify-flight-and-hotel-booking-functionlality;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 764846450,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDef.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 394483,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Say Hello to New ONboarded Person \"Reddy\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Reddy",
+                  "offset": 35
+                }
+              ],
+              "location": "StepDef.say_hello_to_new_onboarded_person_something(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Hotel.com_RegressionSuite"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3613536222,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDef.Start(Scenario)"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Verify Flight and Hotel Booking functionlality",
+        "description": "",
+        "id": "title-of-your-feature-i-want-to-use-this-template-for-my-feature-file;verify-flight-and-hotel-booking-functionlality;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 728772202,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDef.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 140568,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Say Hello to New ONboarded Person \"Kevin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Kevin",
+                  "offset": 35
+                }
+              ],
+              "location": "StepDef.say_hello_to_new_onboarded_person_something(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Hotel.com_RegressionSuite"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      }
+    ],
+    "name": "Title of your feature I want to use this template for my feature file",
+    "description": "",
+    "id": "title-of-your-feature-i-want-to-use-this-template-for-my-feature-file",
+    "keyword": "Feature",
+    "uri": "src/test/resources/FeatureFiles/mine.feature",
+    "tags": [
+      {
+        "name": "@Hotel.com_RegressionSuite",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,200 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.selenium.try</groupId>
+	<artifactId>CucumberTest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+
+					<compilerVersion>1.8</compilerVersion>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>com.github.temyers</groupId>
+				<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+    				<?m2e ignore?>
+						<id>generateRunners</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>generateRunners</goal>
+						</goals>
+						<configuration>
+							<!-- Mandatory -->
+							<!-- List of package names to scan for glue code. -->
+							<glue>com.example</glue>
+							<featuresDirectory>src/test/resources/FeatureFiles</featuresDirectory>
+							<!-- These are optional, with the default values -->
+							<!-- Where to output the generated tests -->
+							<outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+							<outputDirectory>target/generated-test-sources/cucumber</outputDirectory>
+							<!-- The directory, which must be in the root of the runtime classpath, 
+								containing your feature files. -->
+							<plugins>
+
+								<plugin>
+									<name>json</name>
+								</plugin>
+								<plugin>
+									<name>com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:</name>
+
+									<noOutput>true</noOutput>
+								</plugin>
+							</plugins>
+							<!-- Directory where the cucumber report files shall be written -->
+							<!-- <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir> -->
+							<!-- Generate TestNG runners instead of JUnit ones. -->
+							<useTestNG>true</useTestNG>
+							<monochrome>true</monochrome>
+							<!-- The class naming pattern to use. Only required/used if naming 
+								scheme is 'pattern'. -->
+							<namingPattern>Parallel{c}IT</namingPattern>
+							<!-- One of [SCENARIO, FEATURE]. SCENARIO generates one runner per 
+								scenario. FEATURE generates a runner per feature. -->
+							<parallelScheme>FEATURE</parallelScheme>
+							<packageName>com.sample.runner</packageName>
+							<tags>
+								<tag>@tag1</tag>
+							</tags>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+
+				<configuration>
+					<threadCount>3</threadCount>
+					<perCoreThreadCount>false</perCoreThreadCount>
+					<parallel>methods</parallel>
+					<includes>
+						<include>**/*IT.class</include>
+					</includes>
+				</configuration>
+
+			</plugin>
+
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>cucumber-jvm-example</projectName>
+							<!-- optional, per documentation set this to "true" to bypass generation 
+								of Cucumber Reports entirely, defaults to false if not specified -->
+							<skip>false</skip>
+							<!-- output directory for the generated report -->
+							<outputDirectory>${project.build.directory}/site</outputDirectory>
+							<!-- optional, defaults to outputDirectory if not specified -->
+							<inputDirectory>${project.build.directory}/cucumber-parallel</inputDirectory>
+							<jsonFiles>
+								<!-- supports wildcard or name pattern -->
+								<param>**/*.json</param>
+							</jsonFiles>
+							<!-- optional, defaults to outputDirectory if not specified -->
+
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports-cucumber4-adapter</artifactId>
+			<version>1.2.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.cucumber</groupId>
+					<artifactId>cucumber-java</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.3</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+
+
+</project>
