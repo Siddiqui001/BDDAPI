@@ -8,8 +8,8 @@ Feature: Title of your feature I want to use this template for my feature file -
     And Click on "Packages & Flights" link from home page
     And Verify if Flight&Hotel Link is Selected Already if not select it
 
-		 And Verify if Flight&Hotel Link is Selected Already if not select it
-		 
+		 And Verify if Flight&Hotel Link is Selected Already if not select it1
+		 And Verify if Flight&Hotel Link is Selected Already if not select it2
 		 
     Examples: 
       | MenuItems                                                                                                                   |
